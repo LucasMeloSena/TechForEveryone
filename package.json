@@ -1,0 +1,24 @@
+{
+  "name": "techforeveryone",
+  "version": "1.0.0",
+  "description": "Keep up to date with the world of technology and programming!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasMeloSena/TechForEveryone.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LucasMeloSena/TechForEveryone/issues"
+  },
+  "homepage": "https://github.com/LucasMeloSena/TechForEveryone#readme",
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
