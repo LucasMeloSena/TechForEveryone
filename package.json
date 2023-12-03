@@ -4,7 +4,7 @@
   "description": "Keep up to date with the world of technology and programming!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev"
   },
   "repository": {
     "type": "git",
