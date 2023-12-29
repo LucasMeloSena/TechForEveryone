@@ -4,7 +4,9 @@
   "description": "Keep up to date with the world of technology and programming!",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run lint:fix && npm run services:up && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:down": "docker compose -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
