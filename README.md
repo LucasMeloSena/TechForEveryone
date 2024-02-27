@@ -1,7 +1,9 @@
 # 👨🏼‍💻 TechForEveryone
+
 Keep up to date with the world of technology and programming!
 
-## ⚒️ Technologies 
+## ⚒️ Technologies
+
 - JavaScript
 - React
 - Node.js
@@ -19,4 +21,5 @@ Keep up to date with the world of technology and programming!
 - API Rest
 
 ## 💻 Usage
-You can access the project from this link:  <a href="https://techforeveryone.vercel.app/"> TechForEveryone </a>
+
+You can access the project from this link: <a href="https://techforeveryone.vercel.app/"> TechForEveryone </a>
