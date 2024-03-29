@@ -9,7 +9,7 @@ async function migrations(req, res) {
     direction: "up",
     verbose: true,
     migrationsTable: "pgmigrations",
-  }
+  };
 
   if (req.method === "GET") {
     const pendingMigrations = await migrationRunner(defaultMigrationsOptions);
@@ -18,11 +18,11 @@ async function migrations(req, res) {
   if (req.method === "POST") {
     const migratedMigrations = await migrationRunner({
       ...defaultMigrationsOptions,
-      dryRun: false
+      dryRun: false,
     });
 
     if (migratedMigrations.length > 0) {
-      return res.status(201).json(migratedMigrations);  
+      return res.status(201).json(migratedMigrations);
     }
 
     return res.status(200).json(migratedMigrations);
