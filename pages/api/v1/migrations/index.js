@@ -33,6 +33,7 @@ async function migrations(req, res) {
 
     return res.status(200).json(migratedMigrations);
   }
+  await dbClient.end();
   return res.status(405).json({ message: "Método não permitido!" });
 }
 
