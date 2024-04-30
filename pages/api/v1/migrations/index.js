@@ -3,38 +3,46 @@ import { join } from "node:path";
 import database from "infra/database";
 
 async function migrations(req, res) {
-  const dbClient = await database.getNewClient();
-
-  const defaultMigrationsOptions = {
-    dbClient: dbClient,
-    dir: join("infra", "migrations"),
-    dryRun: true,
-    direction: "up",
-    verbose: true,
-    migrationsTable: "pgmigrations",
-  };
-
-  if (req.method === "GET") {
-    const pendingMigrations = await migrationRunner(defaultMigrationsOptions);
-    await dbClient.end();
-    return res.status(200).json(pendingMigrations);
+  const allowedMethods = ["GET", "POST"];
+  if (!allowedMethods.includes(req.method)) {
+    return res
+      .status(400)
+      .json({ message: `Método "${req.method}" não permitido!` });
   }
-  if (req.method === "POST") {
-    const migratedMigrations = await migrationRunner({
-      ...defaultMigrationsOptions,
-      dryRun: false,
-    });
 
-    await dbClient.end();
+  let dbClient;
+  
+  try {
+    dbClient = await database.getNewClient();
+    const defaultMigrationsOptions = {
+      dbClient: dbClient,
+      dir: join("infra", "migrations"),
+      dryRun: true,
+      direction: "up",
+      verbose: true,
+      migrationsTable: "pgmigrations",
+    };
 
-    if (migratedMigrations.length > 0) {
-      return res.status(201).json(migratedMigrations);
+    if (req.method === "GET") {
+      const pendingMigrations = await migrationRunner(defaultMigrationsOptions);
+      return res.status(200).json(pendingMigrations);
     }
-
-    return res.status(200).json(migratedMigrations);
+    if (req.method === "POST") {
+      const migratedMigrations = await migrationRunner({
+        ...defaultMigrationsOptions,
+        dryRun: false,
+      });
+      if (migratedMigrations.length > 0) {
+        return res.status(201).json(migratedMigrations);
+      }
+      return res.status(200).json(migratedMigrations);
+    }
+  } catch (err) {
+    console.error(err);
+    throw err;
+  } finally {
+    await dbClient.end();
   }
-  await dbClient.end();
-  return res.status(405).json({ message: "Método não permitido!" });
 }
 
 export default migrations;
