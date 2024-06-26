@@ -1,5 +1,6 @@
 # 👨🏼‍💻 TechForEveryone
 
+Project in development during Filipe Deschamps's course.
 Keep up to date with the world of technology and programming!
 
 ## ⚒️ Technologies
