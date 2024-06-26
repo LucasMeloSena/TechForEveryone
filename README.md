@@ -1,6 +1,6 @@
 # 👨🏼‍💻 TechForEveryone
 
-Project in development during Filipe Deschamps's course.
+Project in development during Filipe Deschamps's course. <br>
 Keep up to date with the world of technology and programming!
 
 ## ⚒️ Technologies
@@ -10,16 +10,16 @@ Keep up to date with the world of technology and programming!
 - Node.js
 - Next.js
 - Jest
-- Testes automatizados e de integração
+- Testes unitários e de integração
 - CI | CD
 - Docker
-- Nvm
 - Postgres
 - Terraform
 - Estilização de código - Prettier
 - TDD
 - Kubernetes
 - API Rest
+- Migrations
 
 ## 💻 Usage
 
