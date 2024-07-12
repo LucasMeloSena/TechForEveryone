@@ -2,17 +2,17 @@ name: Automated Tests
 
 on: pull_request
 
-jobs: 
-  jest: 
+jobs:
+  jest:
     name: Jest Ubuntu
     runs-on: ubuntu-latest
-    steps: 
-        - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-        - uses: actions/setup-node@v4
-          with: 
-            node-version: 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-        - run: npm ci
+      - run: npm ci
 
-        - run: npm test
+      - run: npm test
