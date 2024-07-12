@@ -28,11 +28,13 @@ async function getNewClient() {
   return client;
 }
 
-export default {
+function getSSLValues() {
+  return process.env.NODE_ENV == "production" ? true : false;
+}
+
+const database = {
   query,
   getNewClient,
 };
 
-function getSSLValues() {
-  return process.env.NODE_ENV == "production" ? true : false;
-}
+export default database;

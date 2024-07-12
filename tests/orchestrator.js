@@ -17,18 +17,17 @@ async function waitForAllServices() {
 
   async function fetchStatusPage() {
     const url = "http://localhost:3000/api/v1/status";
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw Error(`HTTP error ${response.status}`);
-      }
-      await response.json();
-    } catch (err) {
-      throw err;
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw Error(`HTTP error ${response.status}`);
     }
+    await response.json();
   }
 }
 
-export default {
+const orchestrator = {
   waitForAllServices,
 };
+
+export default orchestrator;
