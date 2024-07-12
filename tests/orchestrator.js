@@ -6,8 +6,10 @@ async function waitForAllServices() {
       retries: 100,
       maxTimeout: 1000,
       onRetry: (err, attempt) => {
-        console.log(`Attempt ${attempt} - Failed to fetch status page: ${err.message}`)
-      }
+        console.log(
+          `Attempt ${attempt} - Failed to fetch status page: ${err.message}`,
+        );
+      },
     });
   };
 
@@ -18,12 +20,11 @@ async function waitForAllServices() {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw Error(`HTTP error ${response.status}`)
+        throw Error(`HTTP error ${response.status}`);
       }
-      await response.json()
-    }
-    catch (err) {
-      throw err
+      await response.json();
+    } catch (err) {
+      throw err;
     }
   }
 }
