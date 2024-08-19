@@ -14,12 +14,11 @@ Keep up to date with the world of technology and programming!
 - CI | CD
 - Docker
 - Postgres
-- Terraform
-- Estilização de código - Prettier
+- Estilização de código
 - TDD
-- Kubernetes
 - API Rest
 - Migrations
+- Linter de commits
 
 ## 💻 Usage
 
