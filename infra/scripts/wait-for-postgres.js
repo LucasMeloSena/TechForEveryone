@@ -1,7 +1,7 @@
 const { exec } = require("node:child_process");
 
 function checkPostgres() {
-  exec("docker inspect techforeveryone-postgres-1", (error, stdout) => {
+  exec("docker inspect techforeveryone-postgres-1", (error, _) => {
     if (error) {
       checkPostgres();
       console.log("🔴 Aguardando Postgres Aceitar Conexões...");
