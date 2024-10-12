@@ -33,7 +33,7 @@ async function clearDatabse() {
 
 const orchestrator = {
   waitForAllServices,
-  clearDatabse
+  clearDatabse,
 };
 
 export default orchestrator;

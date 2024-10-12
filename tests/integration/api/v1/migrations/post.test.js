@@ -2,7 +2,7 @@ import orchestrator from "tests/orchestrator";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
-  await orchestrator.clearDatabse()
+  await orchestrator.clearDatabse();
 });
 
 describe("POST to api/v1/migrations", () => {
